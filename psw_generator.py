@@ -12,10 +12,6 @@ def pswGenerator():
     numero_psw = input("Quante password vuoi generare?")
     numero_psw = int(numero_psw)
     
-    # creazione input per lunghezza password
-    lunghezza_psw = input("Che lunghezza devono avere le password?")
-    lunghezza_psw = int(lunghezza_psw)
-    
     # creazione e scrittura file csv dove verranno memorizzate le password generate
     with open("/Users/user_name/Desktop/directory_name/elenco_psw.csv", "w", newline = "", encoding='utf-8') as elenco_psw:
     
@@ -27,7 +23,10 @@ def pswGenerator():
     
         # iterazione input per la creazione del numero di password
         for i in range(numero_psw):
-    
+
+            # creazione lunghezza password randomica
+            lunghezza_psw = random.choice(range(5,15))
+            
             # list comprehension per creazione randomica del contenuto password 
             password = ''.join(random.choice(chars) for i in range(lunghezza_psw))
             print(password)
